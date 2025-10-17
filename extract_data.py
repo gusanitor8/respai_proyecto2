@@ -5,10 +5,11 @@ import time
 
 # ---------------- CONFIG ----------------
 API_KEY = "AIzaSyCtkUjni3XDsoM0brb4iCKjfVxy8rvCaBw"
-VIDEO_ID = "kffacxfA7G4"  
+VIDEO_ID = "nHkKJ87FS6s"  
 BASE_URL = "https://www.googleapis.com/youtube/v3/commentThreads"
 MAX_CALLS = 20             # 20 calls x 100 results = 2000 comments
-OUTPUT_DIR = "data/raw_youtube_comments_relevance"
+OUTPUT_DIR = "data/iphone_samsung_4_comments_relevance"
+SUFIX = ""
 # ----------------------------------------
 
 
@@ -42,7 +43,7 @@ def fetch_comments():
         data = response.json()
 
         # Save response to file
-        file_path = os.path.join(OUTPUT_DIR, f"comments_page_{call_number}.json")
+        file_path = os.path.join(OUTPUT_DIR, f"comments_page_{call_number}{SUFIX}.json")
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
